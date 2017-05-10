@@ -19,9 +19,11 @@ function callback(students) {
 
 function create() {
   db.Student.create({
-    first_name: "adsfa",
-    last_name: "asdfa",
-    email: "ssss"
+    first_name: "rrrr",
+    last_name: "ajah",
+    height: 168,
+    phone: '13333',
+    email: "cccc@gmail.com"
   })
   .then(students => console.log("added"))
   .catch(err => console.log(err.message))

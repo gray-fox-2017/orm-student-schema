@@ -7,6 +7,9 @@ module.exports = function(sequelize, DataTypes) {
     birthdate: DataTypes.DATE,
     height: {
       type : DataTypes.INTEGER,
+      validate: {
+        min: 150
+      }
     },
     email: {
       type: DataTypes.STRING,
@@ -26,7 +29,14 @@ module.exports = function(sequelize, DataTypes) {
         },
       }
     },
-    phone: DataTypes.STRING
+    phone: {
+      type: DataTypes.STRING,
+      validate: {
+        min: 10,
+        max: 13,
+        is: /\d/g
+      }
+    }
   }, {
     classMethods: {
       associate: function(models) {
