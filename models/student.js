@@ -7,24 +7,41 @@ module.exports = function(sequelize, DataTypes) {
     birthday: DataTypes.DATE,
     email: {
       type: DataTypes.STRING,
-      // validate:{
-      // isEmail: true
-      // isunique: (value,next)=>{
-      //   student.find({
-      //     where:{
-      //       email:value
-      //       }
-      //     })
-      //   }
-      // }
+      validate:{
+        isEmail: {args: true, msg: 'Salah cuy email lu!'},
+        isUnique: function(value, next) {
+                  student.find({
+                    where: {
+                      email: value
+                    }
+                  }).then(function(error) {
+                    if (error)
+                      return next('Email address already in use!');
+                    next();
+                  });
+                }
+              }
+  },
+     phone: {
+      type: DataTypes.INTEGER,
+      validate:{
+        isNumeric:{args:true, msg: 'Your Phone is not Numeric!'},
+        len:{args:[10,13], msg: `Your Phone number must be 10-13 digits!`},
+        isAlphanumeric: function (value, next) {
+                             let phoneno = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im
+                             if(phoneno.test(value)) 
+                               next();
+                              return next('Format phone not valid');}  
+      }  
     },
-     phone: DataTypes.STRING,
      height: {
        type:DataTypes.INTEGER,
        validate:{
-         min: 150
+         min: {
+        args:150,
+         msg: `Validation Error height`}
        }
-   }
+     }
  }, {
     classMethods: {
       associate: function(models) {

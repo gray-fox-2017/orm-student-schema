@@ -9,7 +9,7 @@ module.exports = {
       gender: 'Male',
       birthday: new Date('1991-07-14'),
       email: 'stedyyulius@gmail.com',
-      phone: '087878559222',
+      phone: 087878559222,
       height: 172,
       createdAt: new Date().toUTCString(),
       updatedAt: new Date().toUTCString()
@@ -19,8 +19,19 @@ module.exports = {
       gender: 'Male',
       birthday: new Date('1991-08-03'),
       email: 'Recca_Lie@gmail.com',
-      phone: '08851234574',
+      phone: 08851234574,
       height: 170,
+      createdAt: new Date().toUTCString(),
+      updatedAt: new Date().toUTCString()
+    },
+    {
+      firstname: 'Illegal',
+      lastname: 'Suparjo',
+      gender: 'Male',
+      birthday: new Date('1945-08-03'),
+      email: 'Recca_Liegmail.com',
+      phone: 088534574,
+      height: 120,
       createdAt: new Date().toUTCString(),
       updatedAt: new Date().toUTCString()
     }],{})
