@@ -17,4 +17,15 @@ function callback(students) {
   })
 }
 
-allData()
+function create() {
+  db.Student.create({
+    first_name: "adsfa",
+    last_name: "asdfa",
+    email: "ssss"
+  })
+  .then(students => console.log("added"))
+  .catch(err => console.log(err.message))
+
+}
+
+create();

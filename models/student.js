@@ -5,7 +5,27 @@ module.exports = function(sequelize, DataTypes) {
     last_name: DataTypes.STRING,
     gender: DataTypes.STRING,
     birthdate: DataTypes.DATE,
-    email: DataTypes.STRING,
+    height: {
+      type : DataTypes.INTEGER,
+    },
+    email: {
+      type: DataTypes.STRING,
+      validate: {
+        isEmail: true,
+        isUnique: function (value, next) {
+          Student.find({where: {email: value}})
+                 .then(function (student) {
+                   if (student && this.id !== student.id) {
+                     return next('Email already in use!');
+                   }
+                   return next()
+                 })
+                 .catch(function (err) {
+                   return next(err);
+                 })
+        },
+      }
+    },
     phone: DataTypes.STRING
   }, {
     classMethods: {
