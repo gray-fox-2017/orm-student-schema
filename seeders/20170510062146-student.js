@@ -18,29 +18,29 @@ module.exports = {
       gender      : 'l',
       birthday    : new Date('1995-02-23'),
       email       : 'kamijos@gmail.com',
-      phone       : '082323232323',
-      height      : Number('176'),
+      phone       : 082323232323,
+      height      : 100,
       createdAt   : new Date(),
       updatedAt   : new Date()
 
     },{
-      first_name  : 'Ade',
-      last_name   : 'Dolayo',
+      first_name  : 'iini',
+      last_name   : 'hharusnya gabisa',
       gender      : 'l',
       birthday    : new Date('1995-02-23'),
       email       : 'aded@gmail.com',
-      height      : Number('150'),
-      phone       : '082277732323',
+      height      : 150,
+      phone       : 082277732323,
       createdAt   : new Date(),
       updatedAt   : new Date()
     },{
-      first_name  : 'Sudibio',
-      last_name   : 'listanto',
+      first_name  : 'gabisa',
+      last_name   : 'masuk',
       gender      : 'l',
       birthday    : new Date('1995-09-13'),
       email       : 'sudilis@gmail.com',
-      phone       : '085299732323',
-      height      : Number('168'),
+      phone       : 99090909,
+      height      : 128,
       createdAt   : new Date(),
       updatedAt   : new Date()
     }])

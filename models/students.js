@@ -5,14 +5,45 @@ module.exports = function(sequelize, DataTypes) {
     last_name: DataTypes.STRING,
     gender: DataTypes.STRING,
     birthday: DataTypes.DATE,
-    email: {//DataTypes.STRING,//{
+    email:// DataTypes.STRING,
+    {
       type : DataTypes.STRING,
       validate :  {
-        isEmail: true
+        isEmail: {args : true, msg : 'email ga valid!!' }
+        //isUnique: true
+         //isUnique : true,
+        // msg : 'error'
+      }
+    },
+    phone :{
+      type : DataTypes.INTEGER,
+      validate : {
+        isNumeric : {args: true, msg:'harus angka'},
+        len : {args :[10,13], msg :'panjangnya harus 10-13! '},
+        isAlphaNumeric : {args:false, msg:'gaboleh huruf!'}
+      }
+    },
+    height : {
+      type : DataTypes.INTEGER,
+      validate : {
+        min : {args: 150, msg : 'tinggi harus 150 keatas'}
       }
     }
-    phone: DataTypes.STRING,
-    height: DataTypes.STRING
+    //height : DataTypes.INTEGER
+    // },
+    // phone: {
+    //   type : DataTypes.INTEGER,
+    //   validate : {
+    //     len :{args:[10-13]},
+    //     isAlpha :{args: true, msg : 'error'},
+    //   }
+    // },
+    // height: {
+    //   type : DataTypes.INTEGER,
+    //   validate : {
+    //     min : {args: 150, msg : 'error'},
+    //   }
+    // }
   }, {
     classMethods: { //static
       //untuk memodifikasi yang udah ada
