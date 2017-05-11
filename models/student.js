@@ -9,29 +9,29 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       validate:{
         isEmail: {args: true, msg: 'Salah cuy email lu!'},
-        isUnique: function(value, next) {
+        isUnique: function(data, err) {
                   student.find({
                     where: {
-                      email: value
+                      email: data
                     }
                   }).then(function(error) {
                     if (error)
-                      return next('Email address already in use!');
-                    next();
+                      return err('Email address already in use!');
+                    err();
                   });
                 }
-              }
+    }
   },
      phone: {
       type: DataTypes.INTEGER,
       validate:{
         isNumeric:{args:true, msg: 'Your Phone is not Numeric!'},
         len:{args:[10,13], msg: `Your Phone number must be 10-13 digits!`},
-        isAlphanumeric: function (value, next) {
+        isAlphanumeric: function (data, err) {
                              let phoneno = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im
-                             if(phoneno.test(value)) 
-                               next();
-                              return next('Format phone not valid');}  
+                             if(phoneno.test(data)) 
+                               err();
+                              return err('Format phone not valid');}  
       }  
     },
      height: {
