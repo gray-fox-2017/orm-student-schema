@@ -33,7 +33,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       validate: {
         len: function(value) {
-          if (value.length < 10 || value.length > 13) {
+          if (value.toString().length < 10 || value.toString().length > 13) {
             throw new Error('Phone length must be 10 - 13');
           }
         },
