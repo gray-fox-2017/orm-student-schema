@@ -49,7 +49,7 @@ module.exports = function(sequelize, DataTypes) {
       validate : {
         min : {
           args: 150,
-          msg : 'tinggi harus 150 keatas'
+          msg : 'Height should be above 150'
         }
       }
     }
@@ -72,8 +72,8 @@ module.exports = function(sequelize, DataTypes) {
         return `${this.first_name} ${this.last_name}`;
       },
       getAge: function() {
-        return new Date().getFullYear() - this.birthday.getFullYear();
-        //return `Age: ${result}`;
+        let result =  new Date().getFullYear() - this.birthday.getFullYear();
+        return `Age: ${result}`;
       }
     }
   });
