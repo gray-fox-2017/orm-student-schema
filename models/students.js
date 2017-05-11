@@ -4,8 +4,54 @@ module.exports = function(sequelize, DataTypes) {
     firstname: DataTypes.STRING,
     lastname: DataTypes.STRING,
     birthdate: DataTypes.DATE,
-    email: DataTypes.STRING,
-    phone: DataTypes.STRING
+    email:{
+      type : DataTypes.STRING,
+      validate :{
+        isEmail : {
+          args : true,
+          msg : "Must email format"
+        },
+        isUnique : {
+          function(value, next) {
+            if(value){
+              Students.findOne({ where: { email: value }})
+              .then(function(Student) {
+                if(Student){
+                  next("Email already taken");
+                } else {
+                  next()
+                }
+              })
+              .catch(function(err) {
+                next(err.message)
+              })
+            }
+          }
+        }
+      }
+    },
+    phone: {
+      type : DataTypes.STRING,
+      validate :{
+        isNumeric : {
+          args : true,
+          msg : `Phone not allow alphanumeric \n Phone npt allow letter`
+        },
+        len :{
+          args : [10,13],
+          msg : `Only allow 10 - 13 character`
+        }
+      }
+    },
+    height: {
+      type : DataTypes.INTEGER,
+      validate :{
+        min : {
+          args : 150,
+          msg : "Minimum height is 150 cm"
+        }
+      }
+    }
   }, {
     classMethods: {
       associate: function(models) {

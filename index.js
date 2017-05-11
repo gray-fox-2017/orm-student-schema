@@ -12,6 +12,24 @@ let all = () => db.Students.getAllData(function(students){
   })
 })
 
-// let student_1 = new
+let insert_student = () => {
+  db.Students.create({
+    "firstname" : "Bambang",
+    "lastname" : "Mulyadi",
+    "birthdate" : new Date('1995-12-13'),
+    "email" : "bamul.com",
+    "phone" : "086579",
+    "height" : "147"
+  })
+  .then(student => {
+    console.log(student);
+    // console.log(JSON.stringify(student.toJSON(),null, 2));
+  })
+  .catch(err => {
+    console.log(db.Students.msg);
+  })
+  return "Insert Student"
+}
 
-all();
+// all();
+insert_student();
