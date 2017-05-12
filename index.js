@@ -56,6 +56,7 @@ function help() {
 }
 
 replServer.context.help = help();
+replServer.context.help = help;
 replServer.context.addData = addData;
 replServer.context.getAllStudentData = getAllStudentData;
 replServer.context.getAllStudentAge = getAllStudentAge;
