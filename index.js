@@ -22,13 +22,14 @@ let insert_student = () => {
     "height" : "147"
   })
   .then(student => {
-    console.log(student);
+    console.log(JSON.stringify(student));
     // console.log(JSON.stringify(student.toJSON(),null, 2));
   })
   .catch(err => {
     console.log(db.Students.msg);
+    console.log("error");
   })
-  return "Insert Student"
+  return console.log("Insert Student");
 }
 
 // all();

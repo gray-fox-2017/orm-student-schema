@@ -35,11 +35,11 @@ module.exports = function(sequelize, DataTypes) {
       validate :{
         isNumeric : {
           args : true,
-          msg : `Phone not allow alphanumeric \n Phone npt allow letter`
+          msg : "Phone not allow alphanumeric \n Phone npt allow letter"
         },
         len :{
           args : [10,13],
-          msg : `Only allow 10 - 13 character`
+          msg : "Only allow 10 - 13 character"
         }
       }
     },
@@ -68,6 +68,8 @@ module.exports = function(sequelize, DataTypes) {
         .catch((err)=>{
           console.log(err);
         })
+      }, concatName: function() {
+        Students.update()
       }
     },
     instanceMethods: {
