@@ -52,8 +52,8 @@ module.exports = function(sequelize, DataTypes) {
           msg: `Validation error: Minimum height is 150 cm.`
         }
       }
-    }
-  }, {
+    },
+
     getterMethods: {
       full_name: function() {return this.getFullName()}
     },

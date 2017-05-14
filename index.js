@@ -11,7 +11,7 @@ let replServer = repl.start({
 
 const callback_getAllData = (students) => {
   students.forEach((student) => {
-    console.log(`\nThis is the data for student with ID = ${student.id}`);
+    console.log(`id: ${student.id}`);
     console.log(`Full Name: ${student.full_name}`);
     console.log(`First Name: ${student.first_name}`);
     console.log(`Last Name: ${student.last_name}`);
@@ -19,22 +19,21 @@ const callback_getAllData = (students) => {
     console.log(`Birthday: ${student.birthday}`);
     console.log(`Email: ${student.email}`);
     console.log(`Phone: ${student.phone}`);
-    console.log(`Height: ${student.height}\n`);
+    console.log(`Height: ${student.height}`);
   })
 }
 db.Student.getAllData(callback_getAllData);
 
-function createStudent(object) {
-    db.Student.create(object)
-    .then(() => {
-          console.log("Data created")
-        })
-    .catch(err => {
-          console.log(err.message);
-        })
-}
+//function createStudent(object) {
+//    db.Student.create(object)
+//    .then(() => {
+//          console.log("Data created")
+//        })
+//    .catch(err => {
+//          console.log(err.message);
+//        })
+//}
 
-//createStudent({first_name: "Ibnu", last_name: "Sina", gender: "Male", birthday: new Date(1987,11,16), email: "ibnu@sina.com", phone: "081219000002", height: 170})
+//createStudent({firstname: "Ibnu", lastname: "Sina", gender: "Male", email: "ibnu@sina.com", phone: "081219000002", height: 170})
 
 replServer.context.student = db.Student;
-replServer.context.createStudent = createStudent;
