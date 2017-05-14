@@ -37,7 +37,7 @@ function createStudent(object) {
   })
 }
 
-createStudent({firstname: "Hakiem", lastname: "Noersedya", gender: "Male", email: "hakiem@google.com", phone: "0870910932-23", height: 160})
+// createStudent({firstname: "Hakiem", lastname: "Noersedya", gender: "Male", email: "hakiem@google.com", phone: "0870910932023", height: 140})
 
 var replServer = repl.start({
   prompt: ">> ",
