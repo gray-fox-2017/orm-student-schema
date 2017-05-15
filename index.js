@@ -33,6 +33,7 @@ let insertStudent = (first_name,last_name,birthdate,height,email,phone) => {
 var replServer = repl.start({
   prompt: '$ '
 })
-
 replServer.context.all = all
 replServer.context.insertStudent = insertStudent
+//test Validation
+// insertStudent('test','test','1991-10-2',150,'asdfgmail.com','.....')
