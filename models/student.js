@@ -4,8 +4,8 @@ module.exports = function(sequelize, DataTypes) {
     first_name: DataTypes.STRING,
     last_name: DataTypes.STRING,
     gender: DataTypes.STRING,
-    birthday: DataTypes.DATE,
-    tinggi_badan:{
+    // birthday: DataTypes.DATE,
+    height:{
      type: DataTypes.INTEGER,
      validate: {
        min:{
@@ -14,7 +14,7 @@ module.exports = function(sequelize, DataTypes) {
        }
      }
    },
-   birtdate: DataTypes.DATE,
+   birthday: DataTypes.DATE,
    email:{
      type: DataTypes.STRING,
      allowNull: false,
@@ -54,7 +54,7 @@ module.exports = function(sequelize, DataTypes) {
          msg: "Phone length must be 10-13"
        }
      }
-   }
+   },
     createdAt: DataTypes.DATE,
     updatedAt: DataTypes.DATE
   }, {
