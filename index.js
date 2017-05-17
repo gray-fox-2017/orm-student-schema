@@ -4,8 +4,8 @@ const repl = require('repl');
 
 let replServer = repl.start('>> ');
 
-var all = db.Student.getAllData(function(Students){
-  Students.forEach(function(Student){
+var all = db.Student.getAllData(function(Student){
+  Student.forEach(function(Student){
       console.log(`id        : ${Student.id}`)
       console.log(`First Name: ${Student.first_name}`);
       console.log(`Last Name : ${Student.last_name}`);
